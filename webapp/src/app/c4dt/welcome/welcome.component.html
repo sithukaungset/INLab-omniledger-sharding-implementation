@@ -1,0 +1,20 @@
+<h1>Welcome {{ name }}</h1>
+<p>
+    You are on the landing page of the OmniLedger pilot of C4DT. Use the above
+    tabs to navigate your user account.
+</p>
+<p *ngIf="c4dtAccess || matrixAccess">
+    Or you can connect to one of C4DT's services:
+</p>
+<ul>
+    <li *ngIf="matrixAccess">
+        <a class="mat-accent" href="https://matrix.c4dt.org"
+            >C4DT Internal Chat</a
+        >
+    </li>
+    <li *ngIf="c4dtAccess">
+        <a class="mat-accent" href="https://c4dt.org/members-only"
+            >Restricted pages of C4DT</a
+        >
+    </li>
+</ul>

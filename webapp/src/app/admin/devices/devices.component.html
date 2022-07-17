@@ -1,0 +1,46 @@
+<h2>Available Devices</h2>
+<ul>
+    <li *ngFor="let device of devices | async">
+        <div *ngIf="isActiveDevice(devices, device)">
+            <button mat-button (click)="darcShow(device)">
+                {{ getName(devices, device) }}
+            </button>
+            -
+            <button mat-button (click)="deviceRevoke(device)">Revoke</button>
+            -
+            <button mat-button (click)="rename(devices, device)">Rename</button>
+        </div>
+        <div *ngIf="!isActiveDevice(devices, device)">
+            Deleting
+        </div>
+    </li>
+    <button mat-stroked-button (click)="deviceCreate()">Add Device</button>
+</ul>
+<h2>Recovery accounts</h2>
+<ul>
+    <li *ngFor="let recovery of recoveries | async">
+        <div *ngIf="isActiveDevice(recoveries, recovery)">
+            <button mat-button (click)="darcShow(recovery)">
+                {{ getName(recoveries, recovery) }}
+            </button>
+            -
+            <button mat-button (click)="recoveryDelete(recovery)">
+                Delete
+            </button>
+            -
+            <button mat-button (click)="rename(recoveries, recovery)">
+                Rename
+            </button>
+            <span *ngIf="recoveryVersion0(recovery)">
+                -
+                <button mat-button (click)="recoveryUpdate(recovery)">
+                    Update Recovery
+                </button>
+            </span>
+        </div>
+        <div *ngIf="!isActiveDevice(recoveries, recovery)">
+            Deleting
+        </div>
+    </li>
+    <button mat-stroked-button (click)="recoveryCreate()">Add Recovery</button>
+</ul>

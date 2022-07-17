@@ -1,0 +1,117 @@
+<div fxLayout="row" fxLayoutAlign="center">
+    <div fxFlex="50%">
+        <!--    <div fxFlex="30%" style="font-size: 120%;">-->
+        <h1>Welcome New User</h1>
+        <p>
+            This is the C4DT Omniledger / Calypso demo from the
+            <a href="https://demo.c4dt.org">C4DT-Demonstrators</a>. Only
+            registered users can use the login service. If you are interested in
+            OmniLedger / Darc, you can find more information here:
+            <a href="https://showcase.c4dt.org/project/DEDIS/omniledger"
+                >Showcase</a
+            >
+        </p>
+        <div *ngIf="bcs.config.signupNode !== undefined">
+            <h2 style="margin-top: 1em;">Signing up</h2>
+            <p>
+                Now you can sign up with your email to use Omniledger. Once you
+                enter your email address, a new user with that address is
+                created. Then an email with further instructions is sent to your
+                address. Please be sure to understand how Omniledger uses a
+                private key instead of a password. You can get more information
+                in this article:
+                <a href="https://www.c4dt.org/article/partner-login/"
+                    >C4DT Login</a
+                >.
+            </p>
+            <form
+                [formGroup]="signupForm"
+                class="formwidth"
+                (ngSubmit)="signup()"
+            >
+                <mat-form-field class="width100">
+                    <input
+                        matInput
+                        type="text"
+                        placeholder="Alias"
+                        formControlName="alias"
+                    />
+                </mat-form-field>
+                <mat-form-field class="width100">
+                    <input
+                        matInput
+                        type="text"
+                        placeholder="Your Email"
+                        formControlName="email"
+                    />
+                </mat-form-field>
+                <br />
+                <button
+                    mat-raised-button
+                    color="primary"
+                    class="submit-btn"
+                    type="submit"
+                >
+                    Signup
+                </button>
+            </form>
+
+            <h2 style="margin-top: 1em;">Recover account</h2>
+            <p>
+                If you lost your account because you deleted the history of your
+                browser, or because you changed device, you can request a
+                recovery here. Just enter your email address that is stored in
+                the account, and you will receive a recovery-link.
+            </p>
+            <form
+                [formGroup]="recoveryForm"
+                class="formwidth"
+                (ngSubmit)="recover()"
+            >
+                <mat-form-field class="width100">
+                    <input
+                        matInput
+                        type="text"
+                        placeholder="Your Email"
+                        formControlName="email"
+                    />
+                </mat-form-field>
+                <br />
+                <button
+                    mat-raised-button
+                    color="primary"
+                    class="submit-btn"
+                    type="submit"
+                >
+                    Recover
+                </button>
+            </form>
+        </div>
+
+        <h2 style="margin-top: 2em;">Moving to login.c4dt.org</h2>
+        <p>
+            On the 15th of March 2021, we moved the
+            <strong>demo.c4dt.org/omniledger</strong> URL to
+            <strong>login.c4dt.org</strong>. So if you have a login for the old
+            URL, it will not work directly under the new login, as your private
+            key is not available. The easiest way to recover is to do the
+            following:
+        </p>
+        <ol>
+            <li>
+                Go to
+                <a href="https://demo.c4dt.org/omniledger/admin/devices"
+                    >Old devices</a
+                >
+            </li>
+            <li>Click on <strong>Add Device</strong></li>
+            <li>Enter a new name and confirm</li>
+            <li>Click on the link for the new device</li>
+        </ol>
+        <p>
+            This should open the new device under the new URL
+            <strong>login.c4dt.org</strong>
+            and allow you to login again.
+        </p>
+    </div>
+</div>

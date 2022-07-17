@@ -1,0 +1,51 @@
+{
+  "name": "@c4dt/dynacred",
+  "version": "2.0.9",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/c4dt/omniledger.git"
+  },
+  "description": "New dynacred library based on observables, as everything can change",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "lint": "tslint --project . && tslint --project tsconfig.spec.json",
+    "lint:fix": "tslint --fix --project . && tslint --fix --project tsconfig.spec.json",
+    "test": "ts-node -r tsconfig-paths/register node_modules/jasmine/bin/jasmine"
+  },
+  "keywords": [
+    "dynacred",
+    "blockchain",
+    "identity",
+    "crypto",
+    "calypso",
+    "secret",
+    "darc"
+  ],
+  "author": "Linus Gasser",
+  "license": "AGPL-3.0-or-later",
+  "dependencies": {
+    "@dedis/cothority": "^3.6.6",
+    "@dedis/kyber": "^3.4.4",
+    "bn.js": "^5.1.2",
+    "crypto-browserify": "^3.12.0",
+    "elliptic": "^6.5.2",
+    "long": "^4.0.0",
+    "rxjs": "^6.5.4",
+    "toml": "^3.0.0",
+    "url-parse": "^1.5.3"
+  },
+  "devDependencies": {
+    "@types/dockerode": "^2.5.21",
+    "@types/jasmine": "^3.5.0",
+    "@types/long": "^4.0.0",
+    "dockerode": "^3.3.1",
+    "jasmine": "^3.5.0",
+    "nyc": "^15.0.0",
+    "ts-node": "^7.0.1",
+    "tsconfig-paths": "^3.9.0",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.4"
+  }
+}
